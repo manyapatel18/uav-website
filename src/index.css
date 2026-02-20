@@ -1,0 +1,102 @@
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #000000;
+
+  --accent: #ff007f;
+  /* Vibrant Pink */
+  --accent-glow: rgba(255, 0, 127, 0.3);
+  --bg-dark: #000000;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Luxury Button Global */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid #000;
+}
+
+.glow-blur {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: var(--accent-glow);
+  filter: blur(150px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
