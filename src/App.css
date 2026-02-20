@@ -527,16 +527,9 @@ section {
 @media (max-width: 1100px) {
 
   .about-grid,
-  .contact-wrapper,
-  .footer-main {
+  .contact-wrapper {
     grid-template-columns: 1fr;
-    gap: 5rem;
-  }
-
-  .footer-cols {
-    width: 100%;
-    justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
   }
 
   .hero-content {
@@ -558,6 +551,7 @@ section {
 
   .stats-grid {
     justify-content: center;
+    gap: 2rem;
   }
 }
 
@@ -772,41 +766,57 @@ section {
 }
 
 @media (max-width: 768px) {
-  .nav-lightbox {
-    width: 45px;
-    height: 45px;
-  }
-
-  .nav-lightbox.prev {
-    left: 10px;
-  }
-
-  .nav-lightbox.next {
-    right: 10px;
-  }
-
-  .lightbox img {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
   section {
     padding: 80px 5%;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    line-height: 1;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.8rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stat-item h4 {
+    font-size: 2.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    height: 400px;
+    padding: 2rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 3rem 2rem;
+  }
+
+  .contact-form-col {
+    padding: 2.5rem 1.5rem;
   }
 
   .input-row {
     grid-template-columns: 1fr;
     gap: 0;
-  }
-
-  .hero h1 {
-    font-size: 4.5rem;
-  }
-
-  .about-image {
-    max-width: 500px;
-    margin: 0 auto;
   }
 
   .floating-contact-bar {
@@ -817,5 +827,66 @@ section {
   .floating-btn {
     width: 48px;
     height: 48px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .gallery-item {
+    height: 280px;
+  }
+
+  .footer-nav-minimal {
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .section-title {
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .about-image {
+    margin-top: 2rem;
+  }
+
+  .image-accent-border {
+    display: none;
+  }
+
+  .stat-item h4 {
+    font-size: 2.2rem;
+  }
+
+  .gallery-filter {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    flex: 1 1 40%;
   }
 }
