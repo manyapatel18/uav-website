@@ -14,22 +14,27 @@ import {
   Clock
 } from 'lucide-react';
 import Navbar from './components/Navbar/Navbar';
+import CursorGlow from './components/CursorGlow/CursorGlow';
+import Particles from './components/Particles/Particles';
+import AnimatedGlow from './components/AnimatedGlow/AnimatedGlow';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './App.css';
+
+const slides = [
+  "/hero/hero-1.png",
+  "/hero/hero-2.png",
+  "/hero/hero-3.png",
+  "/hero/hero-4.png",
+  "/hero/hero-5.png",
+  "/hero/hero-6.png"
+];
 
 const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showGallery, setShowGallery] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedService, setSelectedService] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-
-  const slides = [
-    "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80"
-  ];
 
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -45,14 +50,90 @@ const App = () => {
   }, []);
 
   const services = [
-    { title: "Wedding Sangeet", desc: "Electrifying sound and dazzling lighting that turn your celebration into a spectacular experience.", img: "https://i.pinimg.com/1200x/a8/1e/1f/a81e1fd8c1e93ff9488dcc5c3585280d.jpg" },
-    { title: "Corporate Events", desc: "High-impact audio visual solutions designed to elevate your brand presence and audience engagement.", img: "https://i.pinimg.com/1200x/7f/7d/6a/7f7d6ae187d883e5ae18dea5d737254e.jpg" },
-    { title: "LED Screen Mapping", desc: "Brilliant, high-definition LED displays that create unforgettable visual statements.", img: "https://i.pinimg.com/1200x/9d/71/04/9d7104f9cc0f9482245dd8d61d2ab894.jpg" },
-    { title: "Conferences", desc: "Precision-driven AV setups ensuring seamless communication and professional excellence.", img: "https://i.pinimg.com/1200x/4f/bf/c6/4fbfc68d02738dde6feb47c1a331d77d.jpg" },
-    { title: "Live Streaming", desc: "Crystal-clear live broadcasts that connect your event to audiences anywhere, anytime.", img: "https://i.pinimg.com/1200x/ad/17/52/ad1752b41ce3c70d4722e6c02e4cdd24.jpg" },
-    { title: "Professional Sound Systems", desc: "Powerful, perfectly balanced audio engineered for clarity, depth, and impact.", img: "https://i.pinimg.com/1200x/01/bc/a0/01bca003dee9b13317bc635169813b1d.jpg" },
-    { title: "Lighting & Truss Setup", desc: "Dynamic lighting designs and robust truss structures that transform stages into showpieces.", img: "https://i.pinimg.com/1200x/9f/68/0f/9f680f58ca534068a667312ba98f852c.jpg" },
-    { title: "Visual Mapping", desc: "Immersive projection and visual mapping that redefine space with innovation and creativity.", img: "https://i.pinimg.com/1200x/c7/1e/37/c71e3716d162eb8d61ae39f58b9fce0b.jpg" },
+    {
+      title: "Wedding Sangeet",
+      desc: "Electrifying sound and dazzling lighting that turn your celebration into a spectacular experience.",
+      detailedDesc: "From grand entrances to high-energy dance performances, we provide end-to-end AV solutions for Wedding Sangeets.",
+      img: "/services/wedding/main.jpg",
+      gallery: [
+        "/services/wedding/1.jpg",
+        "/services/wedding/2.jpg",
+        "/services/wedding/3.jpg",
+        "/services/wedding/4.jpg",
+        "/services/wedding/5.jpg",
+        "/services/wedding/6.jpg"
+      ]
+    },
+    {
+      title: "Corporate Events",
+      desc: "High-impact audio visual solutions designed to elevate your brand presence and audience engagement.",
+      detailedDesc: "Our corporate AV services are tailored for product launches, award ceremonies, and annual meets.",
+      img: "/services/corporate/main.jpg",
+      gallery: [
+        "/services/corporate/1.jpg",
+        "/services/corporate/2.jpg",
+        "/services/corporate/3.jpg",
+        "/services/corporate/4.jpg",
+        "/services/corporate/5.jpg",
+        "/services/corporate/6.jpg"
+      ]
+    },
+    {
+      title: "LED Screen Mapping",
+      desc: "Brilliant, high-definition LED displays that create unforgettable visual statements.",
+      detailedDesc: "We offer P2, P3, and P4 high-definition LED walls for both indoor and outdoor events.",
+      img: "/services/led/main.jpg",
+      gallery: [
+        "/services/led/1.jpg",
+        "/services/led/2.jpg",
+        "/services/led/3.jpg",
+        "/services/led/4.jpg",
+        "/services/led/5.jpg",
+        "/services/led/6.jpg"
+      ]
+    },
+    {
+      title: "Conferences",
+      desc: "Precision-driven AV setups ensuring seamless communication and professional excellence.",
+      detailedDesc: "From small board meetings to international summits, we provide specialized conferencing equipment.",
+      img: "/services/conferences/main.jpg",
+      gallery: [
+        "/services/conferences/1.jpg",
+        "/services/conferences/2.jpg",
+        "/services/conferences/3.jpg",
+        "/services/conferences/4.jpg",
+        "/services/conferences/5.jpg",
+        "/services/conferences/6.jpg"
+      ]
+    },
+    {
+      title: "Live Streaming",
+      desc: "Crystal-clear live broadcasts that connect your event to audiences anywhere, anytime.",
+      detailedDesc: "Expand your event's reach globally with our professional live streaming services.",
+      img: "/services/streaming/main.jpg",
+      gallery: [
+        "/services/streaming/1.jpg",
+        "/services/streaming/2.jpg",
+        "/services/streaming/3.jpg",
+        "/services/streaming/4.jpg",
+        "/services/streaming/5.jpg",
+        "/services/streaming/6.jpg"
+      ]
+    },
+    {
+      title: "Professional Sound Systems",
+      desc: "Powerful, perfectly balanced audio engineered for clarity, depth, and impact.",
+      detailedDesc: "Experience premium sound with our world-class audio equipment specialized in PA systems.",
+      img: "/services/sound/main.jpg",
+      gallery: [
+        "/services/sound/1.jpg",
+        "/services/sound/2.jpg",
+        "/services/sound/3.jpg",
+        "/services/sound/4.jpg",
+        "/services/sound/5.jpg",
+        "/services/sound/6.jpg"
+      ]
+    }
   ];
 
   const testimonials = [
@@ -61,64 +142,11 @@ const App = () => {
     { name: "Vikram Singh", role: "Festival Organizer", text: "Reliability is key in live concerts, and after 23 years, the Utkarsh team still delivers the best performance every time." }
   ];
 
-  const galleryCategories = ["All", "Wedding", "Corporate", "Concerts", "LED Walls", "Lighting"];
-
-  const galleryImages = [
-    // Wedding
-    { url: "https://i.pinimg.com/1200x/cd/6e/88/cd6e885d68128227099b24474775215c.jpg", category: "Wedding" },
-    { url: "https://i.pinimg.com/1200x/bc/58/e7/bc58e72c0827170817c7569f688849b3.jpg", category: "Wedding" },
-    { url: "https://i.pinimg.com/1200x/31/32/79/3132798e2730a907106093322d64020a.jpg", category: "Wedding" },
-    { url: "https://i.pinimg.com/1200x/41/7d/c1/417dc17b7324867184cc8d92997103f6.jpg", category: "Wedding" },
-    { url: "https://i.pinimg.com/1200x/ca/95/43/ca954382e239716e254ff91605f1eb0d.jpg", category: "Wedding" },
-    { url: "https://i.pinimg.com/1200x/7f/7d/6a/7f7d6ae187d883e5ae18dea5d737254e.jpg", category: "Wedding" },
-
-    // Corporate
-    { url: "https://i.pinimg.com/1200x/4f/bf/c6/4fbfc68d02738dde6feb47c1a331d77d.jpg", category: "Corporate" },
-    { url: "https://i.pinimg.com/1200x/c7/1e/37/c71e3716d162eb8d61ae39f58b9fce0b.jpg", category: "Corporate" },
-    { url: "https://i.pinimg.com/1200x/ad/17/52/ad1752b41ce3c70d4722e6c02e4cdd24.jpg", category: "Corporate" },
-    { url: "https://i.pinimg.com/1200x/01/bc/a0/01bca003dee9b13317bc635169813b1d.jpg", category: "Corporate" },
-    { url: "https://i.pinimg.com/1200x/9d/71/04/9d7104f9cc0f9482245dd8d61d2ab894.jpg", category: "Corporate" },
-    { url: "https://i.pinimg.com/1200x/a8/1e/1f/a81e1fd8c1e93ff9488dcc5c3585280d.jpg", category: "Corporate" },
-
-    // Concerts
-    { url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745", category: "Concerts" },
-    { url: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4", category: "Concerts" },
-    { url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30", category: "Concerts" },
-    { url: "https://images.unsplash.com/photo-1514525253361-bee8718a7c73", category: "Concerts" },
-    { url: "https://images.unsplash.com/photo-1459749411177-042180ce673c", category: "Concerts" },
-    { url: "https://images.unsplash.com/photo-1516280440614-37939bbacd81", category: "Concerts" },
-
-    // LED Walls
-    { url: "https://i.pinimg.com/1200x/a1/b2/c3/a1b2c3d4e5f6g7h8i9j0.jpg", category: "LED Walls" },
-    { url: "https://i.pinimg.com/1200x/9d/71/04/9d7104f9cc0f9482245dd8d61d2ab894.jpg", category: "LED Walls" },
-    { url: "https://i.pinimg.com/1200x/7f/7d/6a/7f7d6ae187d883e5ae18dea5d737254e.jpg", category: "LED Walls" },
-    { url: "https://i.pinimg.com/1200x/4f/bf/c6/4fbfc68d02738dde6feb47c1a331d77d.jpg", category: "LED Walls" },
-    { url: "https://i.pinimg.com/1200x/c7/1e/37/c71e3716d162eb8d61ae39f58b9fce0b.jpg", category: "LED Walls" },
-    { url: "https://i.pinimg.com/1200x/01/bc/a0/01bca003dee9b13317bc635169813b1d.jpg", category: "LED Walls" },
-  ];
-
-  const filteredGallery = activeCategory === "All"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === activeCategory);
-
-  const openImage = (index) => {
-    setSelectedImage(index);
-  };
-
-  const nextImage = () => {
-    setSelectedImage((prev) => (prev + 1) % filteredGallery.length);
-  };
-
-  const prevImage = () => {
-    setSelectedImage((prev) => (prev - 1 + filteredGallery.length) % filteredGallery.length);
-  };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const formData = new FormData(e.target);
-    // Add your Web3Forms access key here
     formData.append("access_key", "bba94ff0-a2c5-45ae-8ea6-9c62c3456059");
 
     try {
@@ -152,8 +180,30 @@ const App = () => {
     transition: { duration: 0.6, ease: "easeOut" }
   };
 
+  const nextImage = () => {
+    if (selectedService !== null) {
+      setSelectedImage((prev) => (prev + 1) % services[selectedService].gallery.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedService !== null) {
+      const len = services[selectedService].gallery.length;
+      setSelectedImage((prev) => (prev - 1 + len) % len);
+    }
+  };
+
   return (
     <div className="App" ref={containerRef}>
+      <AnimatedGlow />
+      <Particles
+        fullScreen={true}
+        particleColors={['#ff0088']}
+        moveParticlesOnHover={false}
+        alphaParticles={true}
+        particleCount={120}
+      />
+      <CursorGlow />
       <Navbar />
 
       {/* Hero Section */}
@@ -165,13 +215,25 @@ const App = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.2 }}
+              transition={{ duration: 1.5 }}
               className="slide"
               style={{ backgroundImage: `url(${slides[currentSlide]})` }}
             />
           </AnimatePresence>
         </div>
         <div className="hero-overlay" />
+
+        {/* Slide Indicators */}
+        <div className="hero-indicators">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator-dot ${currentSlide === index ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+              title={`View slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
         <div className="hero-content">
           <motion.div
@@ -230,7 +292,7 @@ const App = () => {
             </motion.div>
 
             <motion.div {...fadeInUp} className="about-image">
-              <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=80" alt="Utkarsh AV Production" />
+              <img src="/about/about-main.png?v=2" alt="Utkarsh AV Production" />
               <div className="image-accent-border"></div>
             </motion.div>
           </div>
@@ -251,78 +313,92 @@ const App = () => {
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 className="service-card"
+                onClick={() => setSelectedService(index)}
+                style={{ cursor: 'pointer' }}
               >
                 <img src={service.img} alt={service.title} className="service-bg-img" />
                 <div className="service-number">{index + 1 < 10 ? `0${index + 1}` : index + 1}</div>
                 <div className="service-content">
                   <h4>{service.title}</h4>
                   <p>{service.desc}</p>
+                  <button className="view-details-btn">
+                    See Photos & Details <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </button>
                 </div>
               </motion.div>
             ))}
           </div>
-
-          <motion.div {...fadeInUp} style={{ textAlign: 'center', marginTop: '4rem' }}>
-            <a href="#gallery" className="btn-primary" onClick={() => setShowGallery(true)}>
-              View Picture Gallery <ArrowRight size={20} style={{ marginLeft: '12px' }} />
-            </a>
-          </motion.div>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="gallery-section">
-        <div className="container">
-          <motion.h2 {...fadeInUp} className="section-title">
-            EVENT <span>GALLERY</span>
-          </motion.h2>
-
-          <div className="gallery-filter">
-            {galleryCategories.map(cat => (
-              <button
-                key={cat}
-                className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          <div className="gallery-grid">
-            <AnimatePresence mode='popLayout'>
-              {filteredGallery.map((img, index) => (
-                <motion.div
-                  layout
-                  key={img.url + index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                  className="gallery-item"
-                  onClick={() => openImage(index)}
-                >
-                  <img src={img.url} alt={`Gallery ${index}`} loading="lazy" />
-                  <div className="gallery-overlay">
-                    <span className="category-tag">{img.category}</span>
-                    <i className="fa-solid fa-expand"></i>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      {/* Lightbox Modal */}
+      {/* Service Details Modal */}
       <AnimatePresence>
-        {selectedImage !== null && (
+        {selectedService !== null && (
+          <motion.div
+            className="service-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              className="service-modal-content"
+              initial={{ scale: 0.9, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 30 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="modal-close" onClick={() => setSelectedService(null)}>
+                <X size={32} />
+              </button>
+
+              <div className="modal-inner">
+                <div className="modal-top-bar">
+                  <div className="modal-title-area">
+                    <span className="modal-index">Service {selectedService + 1}</span>
+                    <h2>{services[selectedService].title}</h2>
+                    <p className="modal-short-desc">{services[selectedService].desc}</p>
+                  </div>
+                </div>
+
+                <div className="modal-gallery-wrapper">
+                  <div className="main-gallery-grid">
+                    {services[selectedService].gallery.map((img, i) => (
+                      <motion.div
+                        key={i}
+                        className="gallery-card"
+                        whileHover={{ scale: 1.02 }}
+                        onClick={() => setSelectedImage(i)}
+                      >
+                        <img src={img} alt={`${services[selectedService].title} ${i}`} />
+                        <div className="card-hover-overlay">
+                          <i className="fa-solid fa-expand"></i>
+                          <span>View Full Size</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="modal-footer-info">
+                  <p>{services[selectedService].detailedDesc.substring(0, 100)}...</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox for Service Gallery */}
+      <AnimatePresence>
+        {selectedImage !== null && selectedService !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="lightbox"
             onClick={() => setSelectedImage(null)}
+            style={{ zIndex: 2000 }}
           >
             <button className="close-lightbox" onClick={() => setSelectedImage(null)}>
               <X size={40} />
@@ -334,15 +410,15 @@ const App = () => {
               key={selectedImage}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              src={filteredGallery[selectedImage].url}
+              src={services[selectedService].gallery[selectedImage]}
               alt="Full view"
             />
             <button className="nav-lightbox next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
               <ChevronRight size={40} />
             </button>
             <div className="lightbox-info">
-              <span>{filteredGallery[selectedImage].category}</span>
-              <p>{selectedImage + 1} / {filteredGallery.length}</p>
+              <span>{services[selectedService].title}</span>
+              <p>{selectedImage + 1} / {services[selectedService].gallery.length}</p>
             </div>
           </motion.div>
         )}
@@ -451,7 +527,6 @@ const App = () => {
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#gallery">Gallery</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
           </div>

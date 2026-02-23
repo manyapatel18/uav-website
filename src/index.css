@@ -5,12 +5,13 @@
 
   color-scheme: dark;
   color: #ffffff;
-  background-color: #000000;
+  background-color: #060010;
+  color: #ffffff;
 
-  --accent: #ff007f;
-  /* Vibrant Pink */
-  --accent-glow: rgba(255, 0, 127, 0.3);
-  --bg-dark: #000000;
+  --accent: #ff0088;
+  /* Vibrant Pink matching ReactBits */
+  --accent-glow: rgba(255, 0, 136, 0.3);
+  --bg-dark: #060010;
   --text-muted: rgba(255, 255, 255, 0.6);
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
