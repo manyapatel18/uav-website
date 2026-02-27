@@ -51,87 +51,87 @@ const App = () => {
 
   const services = [
     {
-      title: "Wedding Sangeet",
-      desc: "Electrifying sound and dazzling lighting that turn your celebration into a spectacular experience.",
-      detailedDesc: "From grand entrances to high-energy dance performances, we provide end-to-end AV solutions for Wedding Sangeets.",
-      img: "/services/wedding/main.jpg",
-      gallery: [
-        "/services/wedding/1.jpg",
-        "/services/wedding/2.jpg",
-        "/services/wedding/3.jpg",
-        "/services/wedding/4.jpg",
-        "/services/wedding/5.jpg",
-        "/services/wedding/6.jpg"
-      ]
-    },
-    {
       title: "Corporate Events",
-      desc: "High-impact audio visual solutions designed to elevate your brand presence and audience engagement.",
-      detailedDesc: "Our corporate AV services are tailored for product launches, award ceremonies, and annual meets.",
-      img: "/services/corporate/main.jpg",
+      desc: "We deliver seamless audio-visual solutions for corporate meetings, product launches, and annual gatherings.",
+      detailedDesc: "Our precision-driven setup enhances brand presence and ensures impactful communication.",
+      img: "/services/corporate/main.png",
       gallery: [
-        "/services/corporate/1.jpg",
-        "/services/corporate/2.jpg",
-        "/services/corporate/3.jpg",
-        "/services/corporate/4.jpg",
-        "/services/corporate/5.jpg",
-        "/services/corporate/6.jpg"
-      ]
-    },
-    {
-      title: "LED Screen Mapping",
-      desc: "Brilliant, high-definition LED displays that create unforgettable visual statements.",
-      detailedDesc: "We offer P2, P3, and P4 high-definition LED walls for both indoor and outdoor events.",
-      img: "/services/led/main.jpg",
-      gallery: [
-        "/services/led/1.jpg",
-        "/services/led/2.jpg",
-        "/services/led/3.jpg",
-        "/services/led/4.jpg",
-        "/services/led/5.jpg",
-        "/services/led/6.jpg"
+        "/services/corporate/1.png",
+        "/services/corporate/2.png",
+        "/services/corporate/3.png",
+        "/services/corporate/4.png",
+        "/services/corporate/5.png",
+        "/services/corporate/6.png"
       ]
     },
     {
       title: "Conferences",
-      desc: "Precision-driven AV setups ensuring seamless communication and professional excellence.",
-      detailedDesc: "From small board meetings to international summits, we provide specialized conferencing equipment.",
-      img: "/services/conferences/main.jpg",
+      desc: "From small seminars to large-scale conventions, we provide complete AV production support.",
+      detailedDesc: "High-quality sound, dynamic visuals, and flawless technical execution elevate every session.",
+      img: "/services/conferences/main.png",
       gallery: [
-        "/services/conferences/1.jpg",
-        "/services/conferences/2.jpg",
-        "/services/conferences/3.jpg",
-        "/services/conferences/4.jpg",
-        "/services/conferences/5.jpg",
-        "/services/conferences/6.jpg"
+        "/services/conferences/1.png",
+        "/services/conferences/2.png",
+        "/services/conferences/3.png",
+        "/services/conferences/4.png",
+        "/services/conferences/5.png",
+        "/services/conferences/6.png"
       ]
     },
     {
-      title: "Live Streaming",
-      desc: "Crystal-clear live broadcasts that connect your event to audiences anywhere, anytime.",
-      detailedDesc: "Expand your event's reach globally with our professional live streaming services.",
-      img: "/services/streaming/main.jpg",
+      title: "Wedding Events",
+      desc: "We create unforgettable wedding experiences with elegant lighting, crystal-clear sound, and stunning visual effects.",
+      detailedDesc: "Every detail is carefully designed to complement your celebration perfectly.",
+      img: "/services/wedding/main.png",
       gallery: [
-        "/services/streaming/1.jpg",
-        "/services/streaming/2.jpg",
-        "/services/streaming/3.jpg",
-        "/services/streaming/4.jpg",
-        "/services/streaming/5.jpg",
-        "/services/streaming/6.jpg"
+        "/services/wedding/1.png",
+        "/services/wedding/2.png",
+        "/services/wedding/3.png",
+        "/services/wedding/4.png",
+        "/services/wedding/5.png",
+        "/services/wedding/6.png"
       ]
     },
     {
-      title: "Professional Sound Systems",
-      desc: "Powerful, perfectly balanced audio engineered for clarity, depth, and impact.",
-      detailedDesc: "Experience premium sound with our world-class audio equipment specialized in PA systems.",
-      img: "/services/sound/main.jpg",
+      title: "Social Events",
+      desc: "From cultural programs to private celebrations, we provide customized audio-visual solutions.",
+      detailedDesc: "Our innovative production transforms gatherings into memorable experiences.",
+      img: "/services/social/main.png",
       gallery: [
-        "/services/sound/1.jpg",
-        "/services/sound/2.jpg",
-        "/services/sound/3.jpg",
-        "/services/sound/4.jpg",
-        "/services/sound/5.jpg",
-        "/services/sound/6.jpg"
+        "/services/social/1.png",
+        "/services/social/2.png",
+        "/services/social/3.png",
+        "/services/social/4.png",
+        "/services/social/5.png",
+        "/services/social/6.png"
+      ]
+    },
+    {
+      title: "Government & Official Event",
+      desc: "We manage professional AV setups for official ceremonies, public functions, and protocol events.",
+      detailedDesc: "Our team ensures reliability, clarity, and compliance with formal event standards.",
+      img: "/services/streaming/main.png",
+      gallery: [
+        "/services/streaming/1.png",
+        "/services/streaming/2.png",
+        "/services/streaming/3.png",
+        "/services/streaming/4.png",
+        "/services/streaming/5.png",
+        "/services/streaming/6.png"
+      ]
+    },
+    {
+      title: "Sports Event",
+      desc: "We power sports events with high-energy sound systems, LED displays, and live broadcast support.",
+      detailedDesc: "Our technical expertise ensures clear communication and an engaging spectator experience.",
+      img: "/services/sound/main.png",
+      gallery: [
+        "/services/sound/1.png",
+        "/services/sound/2.png",
+        "/services/sound/3.png",
+        "/services/sound/4.png",
+        "/services/sound/5.png",
+        "/services/sound/6.png"
       ]
     }
   ];
@@ -182,14 +182,27 @@ const App = () => {
 
   const nextImage = () => {
     if (selectedService !== null) {
-      setSelectedImage((prev) => (prev + 1) % services[selectedService].gallery.length);
+      const len = services[selectedService].gallery.length;
+      if (selectedImage === -1) {
+        setSelectedImage(0);
+      } else if (selectedImage === len - 1) {
+        setSelectedImage(-1);
+      } else {
+        setSelectedImage(selectedImage + 1);
+      }
     }
   };
 
   const prevImage = () => {
     if (selectedService !== null) {
       const len = services[selectedService].gallery.length;
-      setSelectedImage((prev) => (prev - 1 + len) % len);
+      if (selectedImage === -1) {
+        setSelectedImage(len - 1);
+      } else if (selectedImage === 0) {
+        setSelectedImage(-1);
+      } else {
+        setSelectedImage(selectedImage - 1);
+      }
     }
   };
 
@@ -201,7 +214,7 @@ const App = () => {
         particleColors={['#ff0088']}
         moveParticlesOnHover={false}
         alphaParticles={true}
-        particleCount={120}
+        particleCount={60}
       />
       <CursorGlow />
       <Navbar />
@@ -352,36 +365,49 @@ const App = () => {
                 <X size={32} />
               </button>
 
-              <div className="modal-inner">
-                <div className="modal-top-bar">
-                  <div className="modal-title-area">
-                    <span className="modal-index">Service {selectedService + 1}</span>
-                    <h2>{services[selectedService].title}</h2>
-                    <p className="modal-short-desc">{services[selectedService].desc}</p>
+              <div className="modal-inner-vertical">
+                <div className="modal-hero-header" style={{ backgroundImage: `url(${services[selectedService].img})` }}>
+                  <div className="modal-hero-overlay">
+                    <div className="modal-hero-content">
+                      <span className="modal-index">Service {selectedService + 1}</span>
+                      <h2>{services[selectedService].title}</h2>
+                      <p className="modal-hero-tagline">{services[selectedService].desc}</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="modal-gallery-wrapper">
-                  <div className="main-gallery-grid">
-                    {services[selectedService].gallery.map((img, i) => (
-                      <motion.div
-                        key={i}
-                        className="gallery-card"
-                        whileHover={{ scale: 1.02 }}
-                        onClick={() => setSelectedImage(i)}
-                      >
-                        <img src={img} alt={`${services[selectedService].title} ${i}`} />
-                        <div className="card-hover-overlay">
-                          <i className="fa-solid fa-expand"></i>
-                          <span>View Full Size</span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+                <div className="modal-body-container">
+                  <div className="modal-main-details">
+                    <div className="details-text-block">
+                      <h3>Service Portfolio</h3>
+                      <p>{services[selectedService].detailedDesc}</p>
+                    </div>
 
-                <div className="modal-footer-info">
-                  <p>{services[selectedService].detailedDesc.substring(0, 100)}...</p>
+                    <div className="modal-gallery-section">
+                      <h3 className="gallery-section-title">Event Highlights</h3>
+                      <div className="main-gallery-grid">
+                        {services[selectedService].gallery.map((img, i) => (
+                          <motion.div
+                            key={i}
+                            className="gallery-card"
+                            whileHover={{ scale: 1.02 }}
+                            onClick={() => setSelectedImage(i)}
+                          >
+                            <img src={img} alt={`${services[selectedService].title} ${i}`} />
+                            <div className="card-hover-overlay">
+                              <i className="fa-solid fa-expand"></i>
+                              <span>View Full Size</span>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="modal-action-footer">
+                      <p>Planning a similar event?</p>
+                      <a href="#contact" onClick={() => setSelectedService(null)} className="btn-primary">Get a Quote</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -410,7 +436,7 @@ const App = () => {
               key={selectedImage}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              src={services[selectedService].gallery[selectedImage]}
+              src={selectedImage === -1 ? services[selectedService].img : services[selectedService].gallery[selectedImage]}
               alt="Full view"
             />
             <button className="nav-lightbox next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
@@ -418,7 +444,7 @@ const App = () => {
             </button>
             <div className="lightbox-info">
               <span>{services[selectedService].title}</span>
-              <p>{selectedImage + 1} / {services[selectedService].gallery.length}</p>
+              <p>{selectedImage === -1 ? "Main Presentation" : `${selectedImage + 1} / ${services[selectedService].gallery.length}`}</p>
             </div>
           </motion.div>
         )}

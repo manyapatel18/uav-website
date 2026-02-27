@@ -90,7 +90,6 @@ const AnimatedGlow = () => {
                 height: '100vh',
                 pointerEvents: 'none',
                 zIndex: -2,
-                filter: 'blur(40px)',
                 opacity: 0.8
             }}
         />
