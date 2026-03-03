@@ -283,15 +283,6 @@ const App = () => {
               <span className="experience-badge">Since 2002</span>
               <span className="years-highlight">23+ YEARS OF EXCELLENCE</span>
             </div>
-            <motion.div
-              className="hero-logo-large"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              style={{ marginBottom: '2rem' }}
-            >
-              <img src="/logo/logo.webp?v=1" alt="Utkarsh AV Logo" style={{ height: '120px', width: 'auto', objectFit: 'contain' }} />
-            </motion.div>
             <h1>
               VADODARA'S <span className="text-stroke">TRUSTED</span><br />
               <span className="text-gradient">AV SOLUTIONS</span>
@@ -605,8 +596,7 @@ const App = () => {
             <a href="#contact">Contact</a>
           </div>
           <div className="footer-bottom">
-            <img src="/logo/logo.webp?v=1" alt="Utkarsh AV" style={{ height: '40px', marginBottom: '1rem' }} />
-            <p>&copy; {new Date().getFullYear()} - 23+ Years of Event Excellence.</p>
+            <p>&copy; {new Date().getFullYear()} Utkarsh Audio Visual - 23+ Years of Event Excellence.</p>
           </div>
         </div>
       </footer>
