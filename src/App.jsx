@@ -59,9 +59,9 @@ const App = () => {
 
   const services = [
     {
-      title: "Corporate Events",
-      desc: "We deliver seamless audio-visual solutions for corporate meetings, product launches, and annual gatherings.",
-      detailedDesc: "Our precision-driven setup enhances brand presence and ensures impactful communication.",
+      title: "Corporate Affairs",
+      desc: "We manage conferences, seminars, product launches, annual meetings, award ceremonies, and corporate retreats with precision and professionalism.",
+      detailedDesc: "Our team ensures seamless execution that enhances brand value and delivers impactful business experiences.",
       img: "/services/corporate/main.webp",
       gallery: [
         "/services/corporate/1.webp",
@@ -76,9 +76,9 @@ const App = () => {
       ]
     },
     {
-      title: "Wedding Events",
-      desc: "Unforgettable wedding experiences with elegant lighting, crystal-clear sound, and stunning visuals.",
-      detailedDesc: "Every detail is carefully designed to complement your celebration perfectly.",
+      title: "Wedding Experiences",
+      desc: "We specialize in Sangeet, Engagement, and Reception celebrations, delivering beautifully planned and flawlessly executed wedding functions.",
+      detailedDesc: "With advanced technical setups and stunning visual effects, we create a grand and immersive experience that makes your special moments unforgettable.",
       img: "/services/wedding/main.webp",
       gallery: [
         "/services/wedding/1.webp",
@@ -90,9 +90,9 @@ const App = () => {
       ]
     },
     {
-      title: "Government Events",
-      desc: "Reliable AV setups for official ceremonies, public functions, and high-protocol government events.",
-      detailedDesc: "Our team ensures crystal clarity and compliance with formal event standards.",
+      title: "Government Event Solutions",
+      desc: "We organize official ceremonies, public programs, inaugurations, awareness campaigns, and cultural festivals with structured planning and full compliance.",
+      detailedDesc: "We provide end-to-end audio visual solutions including professional sound systems, LED screens, projectors, lighting setups, and live streaming services.",
       img: "/services/government/main.webp",
       gallery: [
         "/services/government/5.webp",
@@ -104,9 +104,9 @@ const App = () => {
       ]
     },
     {
-      title: "Sports Events",
-      desc: "High-energy sound systems, LED displays, and live broadcast support for stadiums and arenas.",
-      detailedDesc: "Technical expertise ensuring engaging spectator experiences for every match.",
+      title: "Sports Event Excellence",
+      desc: "We organize tournaments, marathons, leagues, school and college sports meets, and corporate sports events with professional planning and execution.",
+      detailedDesc: "From stage setup and sound systems to LED screens, branding, and complete ground management, we deliver high-energy and well-coordinated sporting experiences.",
       img: "/services/sports/main.webp",
       gallery: [
         "/services/sports/1.webp",
@@ -121,9 +121,9 @@ const App = () => {
       ]
     },
     {
-      title: "Social Events",
-      desc: "Customized audio-visual solutions for private celebrations, cultural programs, and parties.",
-      detailedDesc: "Transforming your gatherings into memorable and vibrant social experiences.",
+      title: "Social & Cultural Event Solutions",
+      desc: "We organize Garba nights, temple events, Katha programs, school and university events, marathons, and other community celebrations with structured planning and creative execution.",
+      detailedDesc: "From stage setup and décor to sound systems, LED screens, lighting, and complete event coordination, we ensure a smooth, energetic, and memorable experience for every occasion.",
       img: "/services/social/main.webp",
       gallery: [
         "/services/social/1.webp",
@@ -136,8 +136,8 @@ const App = () => {
     },
     {
       title: "Sales & Services",
-      desc: "Premium audio-visual equipment sales and expert maintenance services for permanent installations.",
-      detailedDesc: "Top-tier brands and reliable support for offices, venues, and commercial spaces.",
+      desc: "We provide sales and rental of LED screens, professional sound systems, video equipment, and advanced audio-visual technology for all types of events.",
+      detailedDesc: "With customized solutions tailored to your requirements, we ensure high-quality performance, technical support, and complete client satisfaction.",
       img: "/services/sales/main.webp",
       gallery: [
         "/services/sales/1.webp",
@@ -154,9 +154,9 @@ const App = () => {
   ];
 
   const testimonials = [
-    { name: "Siddharth Rao", role: "CEO, TechGlobal India", text: "Utkarsh Audio Visual is our go-to partner for all corporate summits. Their technical precision is unmatched in Vadodara." },
-    { name: "Ananya Desai", role: "Celebrity Wedding Planner", text: "They turned our vision into reality. The LED wall clarity and sound balance were perfect for the 2000+ guest list." },
-    { name: "Vikram Singh", role: "Festival Organizer", text: "Reliability is key in live concerts, and after 23 years, the Utkarsh team still delivers the best performance every time." }
+    { name: "Chintan Mehta", role: "Owner, White Lily Events", text: "Utkarsh Services delivered our corporate conference with absolute perfection. The LED setup, sound quality, and overall execution reflected true professionalism and class." },
+    { name: "Dhruv Patel", role: "Dhruv Communication", text: "The team transformed our social function into a vibrant and well-organized celebration. Everything was handled with care and perfection" },
+    { name: "Minesh Suthat", role: "Smit Electronics", text: "From stage setup to sound and branding, Utkarsh Services ensured our sports event ran smoothly and energetically. A truly reliable team." }
   ];
 
   // Preload critical hero images
@@ -310,7 +310,7 @@ const App = () => {
                 ABOUT <span>US</span>
               </h2>
               <h3>A Legacy of Technical Excellence in Event Production.</h3>
-              <p>For over two decades, Utkarsh Audio Visual has been Vadodara’s trusted leader in professional event technology. We deliver complete end-to-end audio visual solutions designed to make every event seamless, impactful, and unforgettable.</p>
+              <p>For over two decades, Utkarsh Services has been Gujarat's trusted leader in professional event technology. We deliver complete end-to-end audio visual solutions designed to make every event seamless, impactful, and unforgettable.</p>
               <p>Our team of experienced engineers, combined with cutting-edge equipment, ensures your message is heard with clarity and seen with precision.</p>
 
               <div className="stats-grid">
@@ -549,7 +549,7 @@ const App = () => {
               >
                 <div className="experience-pill">SINCE 2002</div>
                 <h3>CREATING UNFORGETTABLE <span>EXPERIENCES</span></h3>
-                <p>Leading the AV industry in Vadodara with 23+ years of technical excellence.</p>
+                <p>Leading the AV industry in Gujarat with 23+ years of technical excellence.</p>
               </motion.div>
             </div>
 
@@ -639,7 +639,7 @@ const App = () => {
             <a href="#contact">Contact</a>
           </div>
           <div className="footer-bottom">
-            <p>&copy; {new Date().getFullYear()} Utkarsh Audio Visual - 23+ Years of Event Excellence.</p>
+            <p>&copy; {new Date().getFullYear()} Utkarsh Services - 23+ Years of Event Excellence.</p>
           </div>
         </div>
       </footer>
