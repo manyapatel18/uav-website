@@ -80,7 +80,7 @@ const Navbar = () => {
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="navbar-logo">
                 <a href="#home" onClick={(e) => handleNavClick(e, '#home')}>
-                    UTKARSH<span> AUDIO VISUAL</span>
+                    <img src="/logo/logo.webp?v=1" alt="Utkarsh Audio Visual Logo" className="logo-img" />
                 </a>
             </div>
 
