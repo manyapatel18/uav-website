@@ -630,7 +630,7 @@ section {
   padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 0.8rem;
-  color: #333;
+  color: var(--text-muted);
 }
 
 /* --- NEW MODAL GALLERY STYLES --- */
@@ -1026,40 +1026,130 @@ section {
 
 @media (max-width: 768px) {
   section {
-    padding: 80px 5%;
+    padding: 60px 5%;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding-top: 100px;
+    padding-bottom: 40px;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 10vw, 4.5rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-badge-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .years-highlight {
+    font-size: 1.1rem;
+    padding: 6px 16px;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item h4 {
+    font-size: 2.2rem;
+  }
+
+  .clarity-item {
+    border-radius: 12px;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .minimalist-portfolio-view {
-    padding-top: 60px;
+  .service-modal-content {
+    width: 95% !important;
+    height: 90vh !important;
+    margin: 5vh auto;
+    padding: 20px !important;
+    border-radius: 20px !important;
   }
 
   .clean-title {
-    font-size: 2.2rem;
-  }
-
-  .clean-description {
-    font-size: 1.1rem;
+    font-size: 2rem;
   }
 
   .high-clarity-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .fixed-close-btn {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .about-grid,
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .image-accent-border {
+    display: none;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-form-col {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .testimonial-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .testimonial-content {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    margin-bottom: 3rem;
+  }
+
+  .footer-nav-minimal {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-contact-bar {
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -1166,6 +1256,25 @@ section {
   }
 
   .showcase-glow-box {
-    padding: 60px 20px;
+    padding: 50px 20px;
+    border-radius: 24px;
+  }
+
+  .showcase-logo {
+    height: 90px;
+  }
+
+  .showcase-text h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .showcase-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .showcase-content {
+    gap: 2rem;
   }
 }
