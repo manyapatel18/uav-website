@@ -351,7 +351,7 @@ section {
 
 .view-details-btn {
   background: linear-gradient(135deg, rgba(255, 0, 136, 0.1) 0%, rgba(255, 0, 136, 0.05) 100%);
-  border: 1px solid rgba(255, 0, 136, 0.4);
+  border: 1px solid #ff008866;
   color: #fff;
   padding: 1.25rem 2.5rem;
   font-weight: 700;
@@ -1060,5 +1060,112 @@ section {
 
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* --- BRAND SHOWCASE SECTION --- */
+.brand-showcase {
+  background: var(--bg-dark);
+  padding: 40px 5% 40px;
+}
+
+.showcase-glow-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.showcase-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 800px;
+}
+
+.showcase-logo {
+  height: clamp(100px, 15vw, 180px);
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px var(--accent-glow));
+}
+
+.experience-pill {
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.showcase-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-text h3 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.showcase-text h3 span {
+  color: var(--accent);
+}
+
+.showcase-text p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.gc-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  top: -200px;
+  left: -200px;
+}
+
+.gc-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  bottom: -150px;
+  right: -150px;
+}
+
+@media screen and (max-width: 768px) {
+  .brand-showcase {
+    padding: 30px 5% 30px;
+  }
+
+  .showcase-glow-box {
+    padding: 60px 20px;
   }
 }

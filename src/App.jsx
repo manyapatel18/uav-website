@@ -116,7 +116,8 @@ const App = () => {
         "/services/sports/5.webp",
         "/services/sports/6.webp",
         "/services/sports/7.webp",
-        "/services/sports/8.webp"
+        "/services/sports/8.webp",
+        "/services/sports/9.webp"
       ]
     },
     {
@@ -284,7 +285,7 @@ const App = () => {
               <span className="years-highlight">23+ YEARS OF EXCELLENCE</span>
             </div>
             <h1>
-              VADODARA'S <span className="text-stroke">TRUSTED</span><br />
+              GUJARAT'S <span className="text-stroke">TRUSTED</span><br />
               <span className="text-gradient">AV SOLUTIONS</span>
             </h1>
             <p>
@@ -514,6 +515,49 @@ const App = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Brand Showcase Section */}
+      <section className="brand-showcase">
+        <div className="container">
+          <motion.div
+            className="showcase-glow-box"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <div className="showcase-content">
+              <motion.img
+                src="/logo/logo.webp?v=1"
+                alt="Utkarsh Brand"
+                className="showcase-logo"
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <motion.div
+                className="showcase-text"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="experience-pill">SINCE 2002</div>
+                <h3>CREATING UNFORGETTABLE <span>EXPERIENCES</span></h3>
+                <p>Leading the AV industry in Vadodara with 23+ years of technical excellence.</p>
+              </motion.div>
+            </div>
+
+            {/* Background elements for the glow box */}
+            <div className="glow-circle gc-1"></div>
+            <div className="glow-circle gc-2"></div>
+          </motion.div>
         </div>
       </section>
 
