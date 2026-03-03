@@ -5,9 +5,9 @@ import { useRef, useEffect } from 'react';
  * Customizable particle background using HTML5 Canvas
  */
 const Particles = ({
-    particleCount = 100,
+    particleCount = 60,
     particleSpread = 10,
-    speed = 0.5,
+    speed = 0.4,
     particleColors = ['#ff0088'],
     moveParticlesOnHover = false,
     particleHoverFactor = 1,
@@ -23,7 +23,7 @@ const Particles = ({
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { alpha: true });
         let animationFrameId;
         let particles = [];
 
@@ -117,24 +117,6 @@ const Particles = ({
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
-
-                // Draw lines between particles
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = particleColors[0];
-                        ctx.globalAlpha = (150 - distance) / 1000; // Very subtle lines
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                        ctx.globalAlpha = 1;
-                    }
-                }
             }
             animationFrameId = requestAnimationFrame(animate);
         };

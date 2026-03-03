@@ -1,98 +1,58 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const AnimatedGlow = () => {
-    const canvasRef = useRef(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let animationFrameId;
-
-        let blobs = [];
-        const blobCount = 4;
-        const colors = [
-            'rgba(255, 0, 136, 0.15)',
-            'rgba(255, 0, 136, 0.1)',
-            'rgba(255, 0, 136, 0.05)',
-            'rgba(255, 0, 136, 0.12)'
-        ];
-
-        const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Blob {
-            constructor(color) {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.radius = Math.random() * 300 + 200;
-                this.color = color;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < -this.radius) this.x = canvas.width + this.radius;
-                if (this.x > canvas.width + this.radius) this.x = -this.radius;
-                if (this.y < -this.radius) this.y = canvas.height + this.radius;
-                if (this.y > canvas.height + this.radius) this.y = -this.radius;
-            }
-
-            draw() {
-                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-                gradient.addColorStop(0, this.color);
-                gradient.addColorStop(1, 'transparent');
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < blobCount; i++) {
-            blobs.push(new Blob(colors[i % colors.length]));
-        }
-
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // ctx.globalCompositeOperation = 'screen';
-            blobs.forEach(blob => {
-                blob.update();
-                blob.draw();
-            });
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animate();
-
-        return () => {
-            window.removeEventListener('resize', resize);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
-
     return (
-        <canvas
-            ref={canvasRef}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100vw',
-                height: '100vh',
-                pointerEvents: 'none',
-                zIndex: -2,
-                opacity: 0.8
-            }}
-        />
+        <div className="blobs-container">
+            <div className="blob blob-1"></div>
+            <div className="blob blob-2"></div>
+            <div className="blob blob-3"></div>
+            <style>{`
+                .blobs-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: -2;
+                    overflow: hidden;
+                    pointer-events: none;
+                    opacity: 0.6;
+                }
+                .blob {
+                    position: absolute;
+                    border-radius: 50%;
+                    filter: blur(140px);
+                    animation: move 25s infinite alternate ease-in-out;
+                }
+                .blob-1 {
+                    width: 600px;
+                    height: 600px;
+                    background: rgba(255, 0, 136, 0.15);
+                    top: -10%;
+                    left: -10%;
+                }
+                .blob-2 {
+                    width: 500px;
+                    height: 500px;
+                    background: rgba(255, 0, 136, 0.1);
+                    bottom: -10%;
+                    right: -10%;
+                    animation-duration: 30s;
+                }
+                .blob-3 {
+                    width: 400px;
+                    height: 400px;
+                    background: rgba(255, 0, 136, 0.08);
+                    top: 40%;
+                    left: 40%;
+                    animation-duration: 20s;
+                }
+                @keyframes move {
+                    from { transform: translate(0, 0) scale(1.1); }
+                    to { transform: translate(15%, 15%) scale(1); }
+                }
+            `}</style>
+        </div>
     );
 };
 

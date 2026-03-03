@@ -21,13 +21,21 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './App.css';
 
 const slides = [
-  "/hero/hero-1.png",
-  "/hero/hero-2.png",
-  "/hero/hero-3.png",
-  "/hero/hero-4.png",
-  "/hero/hero-5.png",
-  "/hero/hero-6.png"
+  "/hero/hero-1.webp",
+  "/hero/hero-2.webp",
+  "/hero/hero-3.webp",
+  "/hero/hero-4.webp",
+  "/hero/hero-5.webp",
+  "/hero/hero-6.webp"
 ];
+
+// Preload critical hero images
+if (typeof window !== 'undefined') {
+  slides.slice(0, 2).forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 
 const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -54,84 +62,93 @@ const App = () => {
       title: "Corporate Events",
       desc: "We deliver seamless audio-visual solutions for corporate meetings, product launches, and annual gatherings.",
       detailedDesc: "Our precision-driven setup enhances brand presence and ensures impactful communication.",
-      img: "/services/corporate/main.png",
+      img: "/services/corporate/main.webp",
       gallery: [
-        "/services/corporate/1.png",
-        "/services/corporate/2.png",
-        "/services/corporate/3.png",
-        "/services/corporate/4.png",
-        "/services/corporate/5.png",
-        "/services/corporate/6.png"
-      ]
-    },
-    {
-      title: "Conferences",
-      desc: "From small seminars to large-scale conventions, we provide complete AV production support.",
-      detailedDesc: "High-quality sound, dynamic visuals, and flawless technical execution elevate every session.",
-      img: "/services/conferences/main.png",
-      gallery: [
-        "/services/conferences/1.png",
-        "/services/conferences/2.png",
-        "/services/conferences/3.png",
-        "/services/conferences/4.png",
-        "/services/conferences/5.png",
-        "/services/conferences/6.png"
+        "/services/corporate/1.webp",
+        "/services/corporate/2.webp",
+        "/services/corporate/3.webp",
+        "/services/corporate/4.webp",
+        "/services/corporate/5.webp",
+        "/services/corporate/6.webp",
+        "/services/corporate/7.webp",
+        "/services/corporate/8.webp",
+        "/services/corporate/9.webp"
       ]
     },
     {
       title: "Wedding Events",
-      desc: "We create unforgettable wedding experiences with elegant lighting, crystal-clear sound, and stunning visual effects.",
+      desc: "Unforgettable wedding experiences with elegant lighting, crystal-clear sound, and stunning visuals.",
       detailedDesc: "Every detail is carefully designed to complement your celebration perfectly.",
-      img: "/services/wedding/main.png",
+      img: "/services/wedding/main.webp",
       gallery: [
-        "/services/wedding/1.png",
-        "/services/wedding/2.png",
-        "/services/wedding/3.png",
-        "/services/wedding/4.png",
-        "/services/wedding/5.png",
-        "/services/wedding/6.png"
+        "/services/wedding/1.webp",
+        "/services/wedding/2.webp",
+        "/services/wedding/3.webp",
+        "/services/wedding/4.webp",
+        "/services/wedding/5.webp",
+        "/services/wedding/7.webp"
+      ]
+    },
+    {
+      title: "Government Events",
+      desc: "Reliable AV setups for official ceremonies, public functions, and high-protocol government events.",
+      detailedDesc: "Our team ensures crystal clarity and compliance with formal event standards.",
+      img: "/services/government/main.webp",
+      gallery: [
+        "/services/government/5.webp",
+        "/services/government/1.webp",
+        "/services/government/3.webp",
+        "/services/government/2.webp",
+        "/services/government/6.webp",
+        "/services/government/4.webp"
+      ]
+    },
+    {
+      title: "Sports Events",
+      desc: "High-energy sound systems, LED displays, and live broadcast support for stadiums and arenas.",
+      detailedDesc: "Technical expertise ensuring engaging spectator experiences for every match.",
+      img: "/services/sports/main.webp",
+      gallery: [
+        "/services/sports/1.webp",
+        "/services/sports/2.webp",
+        "/services/sports/3.webp",
+        "/services/sports/4.webp",
+        "/services/sports/5.webp",
+        "/services/sports/6.webp",
+        "/services/sports/7.webp",
+        "/services/sports/8.webp"
       ]
     },
     {
       title: "Social Events",
-      desc: "From cultural programs to private celebrations, we provide customized audio-visual solutions.",
-      detailedDesc: "Our innovative production transforms gatherings into memorable experiences.",
-      img: "/services/social/main.png",
+      desc: "Customized audio-visual solutions for private celebrations, cultural programs, and parties.",
+      detailedDesc: "Transforming your gatherings into memorable and vibrant social experiences.",
+      img: "/services/social/main.webp",
       gallery: [
-        "/services/social/1.png",
-        "/services/social/2.png",
-        "/services/social/3.png",
-        "/services/social/4.png",
-        "/services/social/5.png",
-        "/services/social/6.png"
+        "/services/social/1.webp",
+        "/services/social/2.webp",
+        "/services/social/3.webp",
+        "/services/social/4.webp",
+        "/services/social/5.webp",
+        "/services/social/6.webp",
+        "/services/social/7.webp",
+        "/services/social/8.webp"
       ]
     },
     {
-      title: "Government & Official Event",
-      desc: "We manage professional AV setups for official ceremonies, public functions, and protocol events.",
-      detailedDesc: "Our team ensures reliability, clarity, and compliance with formal event standards.",
-      img: "/services/streaming/main.png",
+      title: "Sales & Services",
+      desc: "Premium audio-visual equipment sales and expert maintenance services for permanent installations.",
+      detailedDesc: "Top-tier brands and reliable support for offices, venues, and commercial spaces.",
+      img: "/services/sales/main.webp",
       gallery: [
-        "/services/streaming/1.png",
-        "/services/streaming/2.png",
-        "/services/streaming/3.png",
-        "/services/streaming/4.png",
-        "/services/streaming/5.png",
-        "/services/streaming/6.png"
-      ]
-    },
-    {
-      title: "Sports Event",
-      desc: "We power sports events with high-energy sound systems, LED displays, and live broadcast support.",
-      detailedDesc: "Our technical expertise ensures clear communication and an engaging spectator experience.",
-      img: "/services/sound/main.png",
-      gallery: [
-        "/services/sound/1.png",
-        "/services/sound/2.png",
-        "/services/sound/3.png",
-        "/services/sound/4.png",
-        "/services/sound/5.png",
-        "/services/sound/6.png"
+        "/services/sales/1.webp",
+        "/services/sales/2.webp",
+        "/services/sales/3.webp",
+        "/services/sales/4.webp",
+        "/services/sales/5.webp",
+        "/services/sales/6.webp",
+        "/services/sales/7.webp",
+        "/services/sales/8.webp"
       ]
     }
   ];
@@ -141,6 +158,14 @@ const App = () => {
     { name: "Ananya Desai", role: "Celebrity Wedding Planner", text: "They turned our vision into reality. The LED wall clarity and sound balance were perfect for the 2000+ guest list." },
     { name: "Vikram Singh", role: "Festival Organizer", text: "Reliability is key in live concerts, and after 23 years, the Utkarsh team still delivers the best performance every time." }
   ];
+
+  // Preload critical hero images
+  if (typeof window !== 'undefined') {
+    slides.slice(0, 2).forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -305,7 +330,7 @@ const App = () => {
             </motion.div>
 
             <motion.div {...fadeInUp} className="about-image">
-              <img src="/about/about-main.png?v=2" alt="Utkarsh AV Production" />
+              <img src="/about/about-main.webp" alt="Utkarsh AV Production" loading="lazy" />
               <div className="image-accent-border"></div>
             </motion.div>
           </div>
@@ -329,13 +354,16 @@ const App = () => {
                 onClick={() => setSelectedService(index)}
                 style={{ cursor: 'pointer' }}
               >
-                <img src={service.img} alt={service.title} className="service-bg-img" />
-                <div className="service-number">{index + 1 < 10 ? `0${index + 1}` : index + 1}</div>
+                <div className="service-image-wrapper">
+                  <img src={service.img} alt={service.title} className="service-card-img" loading="lazy" />
+                  <div className="service-number">{index + 1 < 10 ? `0${index + 1}` : index + 1}</div>
+                </div>
                 <div className="service-content">
                   <h4>{service.title}</h4>
                   <p>{service.desc}</p>
                   <button className="view-details-btn">
-                    See Photos & Details <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                    <span>Explore More</span>
+                    <ArrowRight size={20} className="btn-icon" />
                   </button>
                 </div>
               </motion.div>
@@ -361,54 +389,65 @@ const App = () => {
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close" onClick={() => setSelectedService(null)}>
-                <X size={32} />
-              </button>
 
-              <div className="modal-inner-vertical">
-                <div className="modal-hero-header" style={{ backgroundImage: `url(${services[selectedService].img})` }}>
-                  <div className="modal-hero-overlay">
-                    <div className="modal-hero-content">
-                      <span className="modal-index">Service {selectedService + 1}</span>
-                      <h2>{services[selectedService].title}</h2>
-                      <p className="modal-hero-tagline">{services[selectedService].desc}</p>
-                    </div>
+              <div className="minimalist-portfolio-view">
+                <div className="portfolio-container">
+                  {/* Minimalist Header */}
+                  <div className="portfolio-content-header">
+                    <motion.h2
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="clean-title"
+                    >
+                      {services[selectedService].title}
+                    </motion.h2>
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                      className="clean-description"
+                    >
+                      {services[selectedService].desc}
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="header-btn-wrap"
+                    >
+                      <a href="#contact" onClick={() => setSelectedService(null)} className="btn-primary" style={{ borderRadius: '50px' }}>
+                        Get a Custom Quote
+                      </a>
+                    </motion.div>
+                  </div>
+
+                  {/* High Clarity Image Grid */}
+                  <div className="high-clarity-grid">
+                    {services[selectedService].gallery.map((img, i) => (
+                      <motion.div
+                        key={i}
+                        className="clarity-item"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 }}
+                        onClick={() => setSelectedImage(i)}
+                      >
+                        <img src={img} alt={`${services[selectedService].title} gallery ${i + 1}`} loading="lazy" />
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="portfolio-footer-simple">
+                    <button className="back-link" onClick={() => setSelectedService(null)}>
+                      <ChevronLeft size={20} /> Back to Services
+                    </button>
                   </div>
                 </div>
 
-                <div className="modal-body-container">
-                  <div className="modal-main-details">
-                    <div className="details-text-block">
-                      <h3>Service Portfolio</h3>
-                      <p>{services[selectedService].detailedDesc}</p>
-                    </div>
-
-                    <div className="modal-gallery-section">
-                      <h3 className="gallery-section-title">Event Highlights</h3>
-                      <div className="main-gallery-grid">
-                        {services[selectedService].gallery.map((img, i) => (
-                          <motion.div
-                            key={i}
-                            className="gallery-card"
-                            whileHover={{ scale: 1.02 }}
-                            onClick={() => setSelectedImage(i)}
-                          >
-                            <img src={img} alt={`${services[selectedService].title} ${i}`} />
-                            <div className="card-hover-overlay">
-                              <i className="fa-solid fa-expand"></i>
-                              <span>View Full Size</span>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="modal-action-footer">
-                      <p>Planning a similar event?</p>
-                      <a href="#contact" onClick={() => setSelectedService(null)} className="btn-primary">Get a Quote</a>
-                    </div>
-                  </div>
-                </div>
+                <button className="fixed-close-btn" onClick={() => setSelectedService(null)}>
+                  <X size={40} />
+                </button>
               </div>
             </motion.div>
           </motion.div>

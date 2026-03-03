@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const CursorGlow = () => {
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const glowRef = useRef(null);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
-            setPosition({ x: e.clientX, y: e.clientY });
+            if (glowRef.current) {
+                // Direct DOM update is MUCH faster than triggering a React re-render on every mouse move
+                glowRef.current.style.background = `radial-gradient(circle 400px at ${e.clientX}px ${e.clientY}px, rgba(255, 0, 136, 0.12), transparent 80%)`;
+            }
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     return (
         <div
+            ref={glowRef}
             style={{
                 position: 'fixed',
                 top: 0,
@@ -22,7 +26,8 @@ const CursorGlow = () => {
                 height: '100vh',
                 pointerEvents: 'none',
                 zIndex: 9999,
-                background: `radial-gradient(circle 400px at ${position.x}px ${position.y}px, rgba(255, 0, 127, 0.08), transparent 80%)`,
+                background: `radial-gradient(circle 400px at 50% 50%, rgba(255, 0, 136, 0.08), transparent 80%)`,
+                transition: 'background 0.05s ease-out', // Smoother motion
             }}
         />
     );
