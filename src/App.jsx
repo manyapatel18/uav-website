@@ -131,9 +131,7 @@ const App = () => {
         "/services/social/3.webp",
         "/services/social/4.webp",
         "/services/social/5.webp",
-        "/services/social/6.webp",
-        "/services/social/7.webp",
-        "/services/social/8.webp"
+        "/services/social/6.webp"
       ]
     },
     {
@@ -149,7 +147,8 @@ const App = () => {
         "/services/sales/5.webp",
         "/services/sales/6.webp",
         "/services/sales/7.webp",
-        "/services/sales/8.webp"
+        "/services/sales/8.webp",
+        "/services/sales/9.webp"
       ]
     }
   ];
