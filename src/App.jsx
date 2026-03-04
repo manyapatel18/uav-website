@@ -52,10 +52,58 @@ const App = () => {
   });
 
   useEffect(() => {
+    // Disable Right-Click
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    // Disable Copy & Cut
+    const handleCopy = (e) => {
+      e.preventDefault();
+      alert("Content protection is enabled. Copying is disabled.");
+    };
+
+    // Disable Image Dragging
+    const handleDragStart = (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    };
+
+    // DevTools Protection / Discouragement
+    const handleKeyDown = (e) => {
+      // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85)
+      ) {
+        e.preventDefault();
+        alert("Developer tools are disabled for security.");
+      }
+    };
+
+    console.log("%cSTOP!", "color: red; font-size: 50px; font-weight: bold; -webkit-text-stroke: 1px black;");
+    console.log("%cThis is a browser feature intended for developers. If someone told you to copy and paste something here to enable a feature, it is a scam.", "font-size: 20px;");
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('cut', handleCopy);
+    document.addEventListener('dragstart', handleDragStart);
+    document.addEventListener('keydown', handleKeyDown);
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 6000);
-    return () => clearInterval(timer);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('cut', handleCopy);
+      document.removeEventListener('dragstart', handleDragStart);
+      document.removeEventListener('keydown', handleKeyDown);
+      clearInterval(timer);
+    };
   }, []);
 
   const services = [
