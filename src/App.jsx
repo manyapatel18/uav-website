@@ -17,6 +17,7 @@ import Navbar from './components/Navbar/Navbar';
 import CursorGlow from './components/CursorGlow/CursorGlow';
 import Particles from './components/Particles/Particles';
 import AnimatedGlow from './components/AnimatedGlow/AnimatedGlow';
+import EventHighlights from './components/EventHighlights/EventHighlights';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './App.css';
 
@@ -489,6 +490,9 @@ const App = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Event Highlights Horizontal Moving Photo Gallery */}
+      <EventHighlights />
 
       {/* Testimonials */}
       <section id="testimonials">

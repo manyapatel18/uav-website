@@ -1,0 +1,153 @@
+.highlights-section {
+    padding: 10px 0 0 0;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Modern Ribbon Styling */
+.modern-gallery-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    /* Clean Smooth Fade @ Edges */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+}
+
+.scrolling-ribbon {
+    display: flex;
+    width: max-content;
+    animation: scrollRTL 75s linear infinite;
+    gap: 50px;
+}
+
+/* Ribbon Item Styling */
+.ribbon-item {
+    flex-shrink: 0;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.image-frame {
+    position: relative;
+    width: 500px;
+    height: 320px;
+    border-radius: 32px;
+    overflow: hidden;
+    background: var(--glass);
+    border: 3px solid var(--accent);
+    /* Premium Pink Border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.6s, transform 0.6s;
+    filter: brightness(1);
+}
+
+.frame-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 45%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 55%);
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+/* Interactive States */
+.ribbon-item:hover {
+    transform: scale(1.08) translateY(-15px);
+    z-index: 10;
+}
+
+.ribbon-item:hover .image-frame {
+    border-color: #fff;
+    /* White on hover for contrast */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 0, 136, 0.3);
+}
+
+.ribbon-item:hover img {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+.ribbon-item:hover .frame-shine {
+    left: 50%;
+    top: 50%;
+}
+
+/* RTL Smooth Animation */
+@keyframes scrollRTL {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Total track: 10 items * (500 width + 50 gap) = 5500px */
+        transform: translateX(calc(-550px * 10));
+    }
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .image-frame {
+        width: 420px;
+        height: 280px;
+    }
+
+    @keyframes scrollRTL {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-470px * 10));
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .image-frame {
+        width: 300px;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    @keyframes scrollRTL {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-350px * 10));
+        }
+    }
+}
