@@ -206,7 +206,7 @@ const App = () => {
     { name: "Chintan Mehta", role: "Owner, White Lily Events", text: "Utkarsh Services delivered our corporate conference with absolute perfection. The LED setup, sound quality, and overall execution reflected true professionalism and class." },
     { name: "Dhruv Patel", role: "Dhruv Communication", text: "The team transformed our social function into a vibrant and well-organized celebration. Everything was handled with care and perfection" },
     { name: "Minesh Suthar", role: "Smit Electronics", text: "From stage setup to sound and branding, Utkarsh Services ensured our sports event ran smoothly and energetically. A truly reliable team." },
-    { name: "Ashwin Parekh", role: "Director – NGO & Social Initiatives", text: "Utkarsh Services managed our NGO event with exceptional professionalism and dedication. Their audio-visual setup and coordination ensured our social initiative reached the audience effectively." }
+    { name: "Ashwin Parekh", role: "Director", text: "Utkarsh Services managed our NGO event with exceptional professionalism and dedication. Their audio-visual setup and coordination ensured our social initiative reached the audience effectively." }
   ];
 
   // Preload critical hero images
@@ -365,7 +365,7 @@ const App = () => {
 
               <div className="stats-grid">
                 <div className="stat-item">
-                  <h4>5000+</h4>
+                  <h4>7500+</h4>
                   <p>Successful Events</p>
                 </div>
                 <div className="stat-item">

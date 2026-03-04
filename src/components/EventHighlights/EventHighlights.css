@@ -106,8 +106,8 @@
     }
 
     100% {
-        /* Total track: 10 items * (500 width + 50 gap) = 5500px */
-        transform: translateX(calc(-550px * 10));
+        /* Total track: 16 items * (500 width + 50 gap) = 8800px */
+        transform: translateX(calc(-550px * 16));
     }
 }
 
@@ -124,7 +124,7 @@
         }
 
         100% {
-            transform: translateX(calc(-470px * 10));
+            transform: translateX(calc(-470px * 16));
         }
     }
 }
@@ -147,7 +147,7 @@
         }
 
         100% {
-            transform: translateX(calc(-350px * 10));
+            transform: translateX(calc(-350px * 16));
         }
     }
 }
